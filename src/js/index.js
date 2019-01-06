@@ -9,6 +9,7 @@ require.config({
 require(['mui', 'jquery'], function(mui, $) {
     var con = document.getElementById('con');
     var add = document.getElementById('add');
+    var remove = document.getElementById('remove')
 
     //渲染页面
     $.ajax({
@@ -36,5 +37,9 @@ require(['mui', 'jquery'], function(mui, $) {
         location.href = '../page/add.html'
     }
 
+    //删除
 
+    //修改
+
+    //详情
 })

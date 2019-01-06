@@ -239,22 +239,6 @@ html {
   border: 1px solid #ccc;
 }
 
-.main ul li div {
-  float: right;
-}
-
-.main ul li div span:nth-child(1) {
-  background: blue;
-  color: #fff;
-  border: 1px solid blue;
-}
-
-.main ul li div span:nth-child(2) {
-  background: yellow;
-  color: #fff;
-  border: 1px solid yellow;
-}
-
 .footer {
   font-size: 15px;
   width: 100%;

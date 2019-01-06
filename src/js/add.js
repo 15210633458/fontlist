@@ -6,25 +6,34 @@ require.config({
     }
 })
 
-require("mui", "jquery", function(mui, $) {
+require(["mui", "jquery"], function(mui, $) {
+    var name = document.getElementById('user');
+    var age = document.getElementById('age');
+    var phone = document.getElementById('phone');
+    var add = document.getElementById('add');
+    var Id = document.getElementById('Id');
+    var sure = document.getElementById('sure')
+
     //添加
-    $.ajax({
-        url: "/api/add",
-        success: function(data) {
-            console.log(data)
-                // if (data.code == 1) {
-                //     var html = '';
-                //     data.data.forEach((i) => {
-                //         html += `<li>
-                //                    ${i.name}
-                //                     <div>
-                //                         <span>产薰详情</span>
-                //                         <span>删除</span>
-                //                     </div>
-                //                 </li>`
-                //     })
-                // }
-                // con.innerHTML = html
-        }
-    })
+    sure.onclick = function() {
+        $.ajax({
+            url: "/api/add",
+            type: 'post',
+            data: {
+                name: name.value,
+                age: age.value,
+                phone: phone.value,
+                add: add.value,
+                Id: Id.value
+            },
+            success: function(data) {
+                //console.log(data)
+                alert(data.mes)
+                if (data.code == 1) {
+                    location.href = "../index.html"
+                }
+            }
+        })
+    }
+
 })
