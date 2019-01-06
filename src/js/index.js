@@ -37,9 +37,9 @@ require(['mui', 'jquery'], function(mui, $) {
         location.href = '../page/add.html'
     }
 
-    //删除
+
     con.onclick = function(e) {
-        if (e.target.className == "remove") {
+        if (e.target.className == "remove") { //删除
             var id = e.target.getAttribute('data-id')
             $.ajax({
                 url: "/api/remove",
@@ -54,14 +54,12 @@ require(['mui', 'jquery'], function(mui, $) {
                     }
                 }
             })
-        }
-    }
-
-    //详情
-    con.onclick = function(e) {
-        if (e.target.className == "details") {
+        } else if (e.target.className == "details") { //详情
             var id = e.target.getAttribute('data-id')
             location.href = '../page/add.html?Id=' + id
         }
     }
+
+
+
 })
