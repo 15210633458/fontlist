@@ -35,7 +35,10 @@ gulp.task('server', function() {
             livereload: true,
             proxies: [
                 { source: '/api/list', target: 'http://localhost:3000/users/api/list' },
-                { source: '/api/add', target: 'http://localhost:3000/users/api/add' }
+                { source: '/api/add', target: 'http://localhost:3000/users/api/add' },
+                { source: '/api/remove', target: 'http://localhost:3000/users/api/remove' },
+                { source: '/api/find', target: 'http://localhost:3000/users/api/find' },
+                { source: '/api/change', target: 'http://localhost:3000/users/api/change' }
             ]
 
         }))

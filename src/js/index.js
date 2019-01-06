@@ -9,7 +9,7 @@ require.config({
 require(['mui', 'jquery'], function(mui, $) {
     var con = document.getElementById('con');
     var add = document.getElementById('add');
-    var remove = document.getElementById('remove')
+
 
     //渲染页面
     $.ajax({
@@ -22,8 +22,8 @@ require(['mui', 'jquery'], function(mui, $) {
                     html += `<li>
                                ${i.name}
                                 <div>
-                                    <span>产薰详情</span>
-                                    <span>删除</span>
+                                    <span class="details" data-id=${i.Id}>产薰详情</span>
+                                    <span class="remove" data-id=${i.Id}>删除</span>
                                 </div>
                             </li>`
                 })
@@ -38,8 +38,30 @@ require(['mui', 'jquery'], function(mui, $) {
     }
 
     //删除
-
-    //修改
+    con.onclick = function(e) {
+        if (e.target.className == "remove") {
+            var id = e.target.getAttribute('data-id')
+            $.ajax({
+                url: "/api/remove",
+                data: {
+                    Id: id
+                },
+                success: function(data) {
+                    //console.log(data)
+                    alert(data.mes)
+                    if (data.code == 1) {
+                        location.href = '../index.html'
+                    }
+                }
+            })
+        }
+    }
 
     //详情
+    con.onclick = function(e) {
+        if (e.target.className == "details") {
+            var id = e.target.getAttribute('data-id')
+            location.href = '../page/add.html?Id=' + id
+        }
+    }
 })
